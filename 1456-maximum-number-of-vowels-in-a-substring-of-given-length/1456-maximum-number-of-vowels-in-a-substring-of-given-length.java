@@ -8,7 +8,6 @@ class Solution {
                 countNumVowel++;
             }
         }
-        
         maxNumVowel = countNumVowel;
         
         // Usa la técnica de ventana deslizante para recorrer la cadena
@@ -32,7 +31,7 @@ class Solution {
     }
     
     public boolean isVowel(char x) {
-        return "aeiouAEIOU".indexOf(x) != -1;
+        return "aeiou".indexOf(x) != -1;
     }
 }
 
