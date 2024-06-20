@@ -1,9 +1,11 @@
 import java.util.Stack;
 class Solution {
     Stack<Character> stack = new Stack<>();
+    StringBuilder result = new StringBuilder();
+    Stack<Character> stack2=new Stack<>();
+        
     
     public String removeStars(String s) {
-        
         
         for(int i=0;i<s.length();i++){
             if(s.charAt(i)!='*'){
@@ -13,9 +15,6 @@ class Solution {
             }
         }
         
-         // Usar StringBuilder para construir la cadena resultante
-        StringBuilder result = new StringBuilder();
-        Stack<Character> stack2=new Stack<>();
         while (!stack.isEmpty()) {
             stack2.push(stack.pop());
         }
