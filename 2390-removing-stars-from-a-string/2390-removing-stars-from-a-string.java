@@ -26,5 +26,3 @@ class Solution {
         return result.toString();
     }
 }
-
-//uso insert(0, char ch), porque todos los caracteres existentes desde esa posición en adelante se desplazan una posición hacia la derecha para hacer espacio para el nuevo carácter, también pude haber vaciado la pila dentro de otra pila, y después sacarla para tener el string en el orden correcto.
