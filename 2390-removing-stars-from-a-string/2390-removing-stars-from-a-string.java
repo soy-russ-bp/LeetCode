@@ -12,11 +12,17 @@ class Solution {
                 stack.pop();
             }
         }
+        
          // Usar StringBuilder para construir la cadena resultante
         StringBuilder result = new StringBuilder();
+        Stack<Character> stack2=new Stack<>();
         while (!stack.isEmpty()) {
-            result.insert(0, stack.pop());
+            stack2.push(stack.pop());
         }
+        while (!stack2.isEmpty()) {
+            result.append(stack2.pop());
+        }
+        
         
         return result.toString();
     }
