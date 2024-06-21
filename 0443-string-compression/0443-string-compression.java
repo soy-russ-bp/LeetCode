@@ -1,28 +1,30 @@
 class Solution {
     public int compress(char[] chars) {
-        StringBuilder s = new StringBuilder();
-        int i = 0;
+        int reader = 0;
+        int writer = 0;
 
-        while (i < chars.length) {
-            char pointer = chars[i];
+        while (reader < chars.length) {
+            char pointer = chars[reader];
             int count = 0;
 
             // Contar la cantidad de caracteres consecutivos
-            while (i < chars.length && chars[i] == pointer) {
+            while (reader < chars.length && chars[reader] == pointer) {
                 count++;
-                i++;
+                reader++;
             }
 
-            s.append(pointer);
+            // Escribir el carácter actual
+            chars[writer++] = pointer;
+
+            // Escribir el conteo si es mayor a 1
             if (count > 1) {
-                s.append(count);
+                String countStr = Integer.toString(count);
+                for (int j = 0; j < countStr.length(); j++) {
+                    chars[writer++] = countStr.charAt(j);
+                }
             }
         }
 
-        for (int j = 0; j < s.length(); j++) {
-            chars[j] = s.charAt(j);
-        }
-
-        return s.length();
+        return writer;
     }
 }
