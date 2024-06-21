@@ -19,11 +19,10 @@ class Solution {
             }
         }
 
-        String compressedString = s.toString();
-        for (int j = 0; j < compressedString.length(); j++) {
-            chars[j] = compressedString.charAt(j);
+        for (int j = 0; j < s.length(); j++) {
+            chars[j] = s.charAt(j);
         }
 
-        return compressedString.length();
+        return s.length();
     }
 }
