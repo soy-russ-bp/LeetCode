@@ -21,6 +21,7 @@ class Solution {
         for(int i=0;i<middle;i++){
             if(i==middle-1){//nos ubicamos en la posición anterior a la que eliminaré
                 current.next=current.next.next;//dejo de referenciar...
+                return head;
             }
             current=current.next; //puntero para avanzar en la lista
         }
