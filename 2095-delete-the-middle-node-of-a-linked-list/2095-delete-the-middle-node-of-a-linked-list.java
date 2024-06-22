@@ -32,6 +32,5 @@ class Solution {
             length++;
         }
         return length;
-        
     }
 }
