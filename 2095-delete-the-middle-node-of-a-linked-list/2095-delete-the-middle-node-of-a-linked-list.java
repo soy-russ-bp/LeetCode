@@ -10,7 +10,8 @@
  */
 class Solution {
     public ListNode deleteMiddle(ListNode head) {
-        int middle=(length(head)/2); //devuelve la posición a eliminar
+        int length=length(head);
+        int middle=(length/2); //devuelve la posición a eliminar
         ListNode current=head;
         
         for(int i=0;i<middle;i++){
