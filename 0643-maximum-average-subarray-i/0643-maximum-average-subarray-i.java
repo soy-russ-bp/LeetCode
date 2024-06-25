@@ -7,7 +7,6 @@ class Solution {
         }
         double mayor= sum;
        
-        //usar la técnica de slinding window
         for(int j=k;j<nums.length;j++){
             sum-=nums[j-k];
             sum+=nums[j];
