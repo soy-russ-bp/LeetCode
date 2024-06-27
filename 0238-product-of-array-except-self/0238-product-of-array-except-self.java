@@ -21,10 +21,10 @@ class Solution {
                 }else{
                     answer[j]=producto/nums[j];
                 }
-            }else{//esta es la posición que tiene el cero en nums[], por lo que en answers no se toma en cuenta el 0 y el resultado será el producto omitiendo los 0;
-                if(productZero>1){
+            }else{
+                if(productZero>1){//si hay más de un cero en el arreglo, todo answer será igual a 0
                     answer[j]=0;
-                }else{
+                }else{//cuando en nums sólo hay un cero, la posición del 0 no se toma en cuenta y el resultado será el producto omitiendo el 0;
                     answer[j]=producto;
                 }
                 
