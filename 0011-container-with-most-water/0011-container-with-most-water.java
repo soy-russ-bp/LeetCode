@@ -16,10 +16,8 @@ class Solution {
             }
             if(max<content){
                 max=content;
-            }
-            
+            }  
         }
-        
         return max;
     }
 }
