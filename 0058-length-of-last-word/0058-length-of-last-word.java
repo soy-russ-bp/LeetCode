@@ -7,7 +7,7 @@ class Solution {
             if(Character.isLetter(s.charAt(i)) ){
                 count++;
             }else if(!Character.isLetter(s.charAt(i)) && count<1){
-                
+                //para recorrer los espaciós vacíos como el de: "hola   "
             }else{
                 return count;
             }
