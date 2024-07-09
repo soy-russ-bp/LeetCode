@@ -8,6 +8,15 @@ class Solution {
         int count = 0;
         
         while (i < j) {
+            if (nums[i] == 0) {
+                i++;
+                continue;
+            }
+            if (nums[j] == 0) {
+                j--;
+                continue;
+            }
+
             int sum = nums[i] + nums[j];
             
             if (sum < k) {
@@ -16,6 +25,8 @@ class Solution {
                 j--;
             } else { // sum == k
                 count++;
+                nums[i] = 0; // Mark as removed
+                nums[j] = 0; // Mark as removed
                 i++;
                 j--;
             }
@@ -24,3 +35,4 @@ class Solution {
         return count;
     }
 }
+
