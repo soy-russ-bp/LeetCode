@@ -7,4 +7,3 @@ class Solution {
         Arrays.sort(nums1);
     }
 }
-
