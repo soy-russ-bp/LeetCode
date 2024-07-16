@@ -1,22 +1,24 @@
+import java.util.HashMap;
+
 class Solution {
     public int majorityElement(int[] nums) {
-        int candidato = nums[0];
-        int contador = 1;
+        HashMap<Integer, Integer> countMap = new HashMap<>();
+        int n = nums.length;
 
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == candidato) {
-                contador++;
-            } else {
-                contador--;
-            }
+        // Contar la frecuencia de cada elemento en el array
+        for (int num : nums) {
+            countMap.put(num, countMap.getOrDefault(num, 0) + 1);
+        }
 
-            if (contador == 0) {
-                candidato = nums[i];
-                contador = 1;
+        // Encontrar el elemento mayoritario
+        for (int key : countMap.keySet()) {
+            if (countMap.get(key) > n / 2) {
+                return key;
             }
         }
 
-        // Dado que siempre hay un elemento mayoritario según el problema, no necesitamos validar más.
-        return candidato;
+        // En teoría, siempre hay un elemento mayoritario según el problema
+        return -1;
     }
+
 }
