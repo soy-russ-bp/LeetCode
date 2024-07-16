@@ -16,7 +16,6 @@ class Solution {
             }
         }
 
-        // Dado que siempre hay un elemento mayoritario según el problema, no necesitamos validar más.
         return candidato;
     }
 }
