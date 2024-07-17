@@ -1,55 +1,36 @@
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
+    private static final Map<Character, Integer> ROMAN_TO_INT_MAP = new HashMap<>();
+
+    static {
+        ROMAN_TO_INT_MAP.put('I', 1);
+        ROMAN_TO_INT_MAP.put('V', 5);
+        ROMAN_TO_INT_MAP.put('X', 10);
+        ROMAN_TO_INT_MAP.put('L', 50);
+        ROMAN_TO_INT_MAP.put('C', 100);
+        ROMAN_TO_INT_MAP.put('D', 500);
+        ROMAN_TO_INT_MAP.put('M', 1000);
+    }
+
     public int romanToInt(String s) {
         int num = 0;
-        for (int i = 0; i < s.length(); i++) {
-            switch (s.charAt(i)) {
-                case 'I':
-                    if (i + 1 < s.length() && s.charAt(i + 1) == 'V') {
-                        num += 4;
-                        i++;
-                    } else if (i + 1 < s.length() && s.charAt(i + 1) == 'X') {
-                        num += 9;
-                        i++;
-                    } else {
-                        num += 1;
-                    }
-                    break;
-                case 'V':
-                    num += 5;
-                    break;
-                case 'X':
-                    if (i + 1 < s.length() && s.charAt(i + 1) == 'L') {
-                        num += 40;
-                        i++;
-                    } else if (i + 1 < s.length() && s.charAt(i + 1) == 'C') {
-                        num += 90;
-                        i++;
-                    } else {
-                        num += 10;
-                    }
-                    break;
-                case 'L':
-                    num += 50;
-                    break;
-                case 'C':
-                    if (i + 1 < s.length() && s.charAt(i + 1) == 'D') {
-                        num += 400;
-                        i++;
-                    } else if (i + 1 < s.length() && s.charAt(i + 1) == 'M') {
-                        num += 900;
-                        i++;
-                    } else {
-                        num += 100;
-                    }
-                    break;
-                case 'D':
-                    num += 500;
-                    break;
-                case 'M':
-                    num += 1000;
-                    break;
+        int prevValue = 0;
+
+        // Recorrer la cadena de derecha a izquierda
+        for (int i = s.length() - 1; i >= 0; i--) {
+            int currentValue = ROMAN_TO_INT_MAP.getOrDefault(s.charAt(i), 0);
+            if (currentValue < prevValue) {
+                num -= currentValue;
+            } else {
+                num += currentValue;
             }
+            prevValue = currentValue;
         }
+
         return num;
     }
+
 }
+
